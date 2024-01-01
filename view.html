@@ -23,13 +23,16 @@
     <title>Video Viewer</title>
 </head>
 <body>
-    <video controls>
-        Your browser does not support the video tag.
-    </video>
+    <video controls poster=""></video>
 
     <script>
         var videoSrc = decodeURIComponent(new URLSearchParams(window.location.search).get("src"));
-        document.querySelector("video").src = videoSrc;
+        var videoThumbnail = decodeURIComponent(new URLSearchParams(window.location.search).get("thumbnail"));
+
+        var videoElement = document.querySelector("video");
+        videoElement.src = videoSrc;
+        videoElement.poster = videoThumbnail;
     </script>
 </body>
 </html>
+
